@@ -1,0 +1,36 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+#分治法
+import random
+import math
+
+def randomlist():
+	random_list = []
+	for i in range(10):
+		random_list.append(random.randint(1, 50))
+	return random_list
+
+def quickSort(arr):
+    less = []
+    pivotList = []
+    more = []
+    if len(arr) <= 1:
+    	return arr
+    else:
+    	pivot = arr[0]
+    	for i in arr:
+    		if i > pivot:
+    			more.append(i)
+    		elif i < pivot:
+    			less.append(i)
+    		else:
+    			pivotList.append(i)
+
+    less = quickSort(less)
+    more = quickSort(more)
+
+    return less + pivotList + more
+
+x = randomlist()
+print x
+print quickSort(x)
