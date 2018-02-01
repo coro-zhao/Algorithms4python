@@ -17,9 +17,7 @@ def bubble_sort(a):
 	for j in xrange(0,len(a)-j):
 		for i in xrange(0,len(a)-j-1):
 			if a[i] > a[i+1]:
-				tmp = a[i+1]
-				a[i+1] = a[i]
-				a[i] = tmp
+				a[i],a[i+1] = a[i+1],a[i]
 	return a
 print x
 print bubble_sort(x)
